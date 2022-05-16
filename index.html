@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Mesa Research Facility</title>    
+    <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.min.css">    
+</head>
+<body>  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <img style="height:80px" src="./image/blackmesaLogo.png">
+        </div>
+    </nav>
+    <div align="center">
+        <br>
+        <h3>
+            Black Mesa Transport Authority            
+        </h3>
+        <p>Select the Tram Line for more detailed information</p>
+    </div>
+    <hr>
+    <div class="container-fluid">
+        <div class="row" align="center">
+            <div class="col-sm">                
+                <form id="blueTram">
+                    <button type="buttonBlue" class="btn btn-outline-info">Blue Line</button>
+                </form> 
+            </div>
+            <div class="col-sm">
+                <form id="redTram">
+                    <button type="buttonRed" class="btn btn-outline-danger">Red Line</button>
+                </form> 
+            </div>
+            <div class="col-sm">
+                <form id="greenTram">
+                    <button type="buttonGreen" class="btn btn-outline-success">Green Line</button>
+                </form> 
+            </div>
+            <div class="col-sm">
+                <form id="yellowTram">
+                    <button type="buttonYellow" class="btn btn-outline-warning">Yellow Line</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid" id="bar">
+        <div align="center">
+            <h3 id="tituloLinea"></h3>
+        </div>
+        <div align="center">
+            <p id="detalleLinea"></p>
+        </div>                
+    </div>
+    <br>
+    <div align="center">
+        <img style="height: 600px" src="./image/BlackMesamap.png">
+    </div>    
+    <br>
+    <div align="center" id="tramTicket">
+        <fieldset>
+            <legend>Request Transport Ticket</legend>
+            <form id="requestTicket" action="">
+                <div class="form-group">
+                    <label class="form-label mt-4">Passenger Name:</label>
+                    <input type="text" name="pasajero">
+                </div>                
+                <div class="form-group">
+                    <label class="form-label mt-4">Origin:</label>
+                    <select id="tramOrigin" name="origin">                    
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label mt-4">Destination:</label>
+                    <select id="tramDestination" name="ending">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label mt-4">Time of Travel:</label>
+                    <input type="time" name="tramTime">  
+                </div>    
+                <br>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </fieldset>
+    </div> 
+    <br>
+    <div align="center">
+        <button type="button" id="myTickets" class="btn btn-warning">Show My Tickets</button>        
+    </div>
+    <hr>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Passenger</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Origin</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">ID</th>
+                </tr>
+            </thead>
+            <tbody id="showTickets">
+            </tbody>
+        </table>
+    </div>  
+    <br> 
+</body>
+<script src="./script.js"></script>
+</html>
+
+
+
+
+
+
+
