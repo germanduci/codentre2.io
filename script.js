@@ -35,14 +35,12 @@ const high = new locations("High Altitude Launch Center");
 const sectorF = new locations("Sector F Lambda Complex");
 
 
-
+///CONTENEDORES DE OBJETOS///
 const blueLineTram = [sectorC,sectorB,area9];
 const redLineTram = [level3,sectorG,area3,freight];
 const greenLineTram = [level1,sectorE,area7,sectorA];
 const yellowLineTram = [sectorD,high,sectorF];
 
-
-///CONTENEDORES DE OBJETOS///
 const sectors=[sectorA,sectorB,sectorC,
     sectorD,sectorE,sectorF,sectorG,level1,
     level3,area3,area7,area9,freight,high]
@@ -71,6 +69,7 @@ let tramOrigin = document.getElementById("tramOrigin");
 let tramDestination = document.getElementById("tramDestination");
 let myTickets = document.getElementById("myTickets");
 let showTickets = document.getElementById("showTickets")
+let deleteItem = document.getElementById("removeItem");
 
 ///EVENTS LISTENERS///
 
@@ -118,13 +117,13 @@ myTickets.addEventListener('click', () => {
                     <td>${ticket.tramDate}</td>
                     <td>${ticket.origin}</td>
                     <td>${ticket.destination}</td>
-                    <td>${ticket.id}</td>
+                    <td>${ticket.id}</td>                    
                 </tr>        
         `
     })
 })
 
-///FUNCIONES PARA COMPLETAR DATOS O MODIFICAR EL DOM
+///FUNCIONES PARA COMPLETAR DATOS Y/O MODIFICAR EL DOM
 function populateTram(){
     sectors.forEach(locations => {
         tramOrigin.innerHTML+=`<option value="${locations.location}">${locations.location}</option>`
@@ -153,7 +152,7 @@ function blueLine(){
 
 function redLine(){    
     tituloLinea.innerText=`Red Line Tram`
-    tituloLinea.className=`text-warning`
+    tituloLinea.className=`text-danger`
     detalleLinea.innerText=`Red Line Tram runs between:
     1. Level 3 Dormitories
     2. Sector G Hydro Electric
