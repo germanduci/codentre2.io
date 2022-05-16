@@ -1,9 +1,9 @@
 ///CLASES Y CONSTRUCTORES///
-
 class ticket{
-    constructor(pasajero,tramTime,origin,destination,id){        
+    constructor(pasajero,tramTime,tramDate,origin,destination,id){        
         this.pasajero=pasajero;
         this.tramTime=tramTime;
+        this.tramDate=tramDate;
         this.origin=origin;
         this.destination=destination;
         this.id=id;        
@@ -97,8 +97,9 @@ tramTicket.addEventListener('submit', (event) => {
     event.preventDefault();
     let id = Math.ceil(Math.random()*10000);
     let tramTime = new Date().toLocaleTimeString();
+    let tramDate = getDate();
     let formData = new FormData(event.target)
-    const ordenTicket = new ticket (formData.get('pasajero'),tramTime,formData.get('origin'),
+    const ordenTicket = new ticket (formData.get('pasajero'),tramTime,tramDate,formData.get('origin'),
     formData.get('ending'),id) 
     tickets.push(ordenTicket);
     localStorage.setItem('ticket',JSON.stringify(tickets));   
@@ -107,12 +108,14 @@ tramTicket.addEventListener('submit', (event) => {
 
 //Ver tickets generados
 myTickets.addEventListener('click', () => { 
+    showTickets.innerHTML=``
     let ticketStorage = JSON.parse(localStorage.getItem('ticket'))
     ticketStorage.forEach(ticket => {        
         showTickets.innerHTML+=`
                 <tr class="table-success">
                     <th scope="row">${ticket.pasajero}</th>
                     <td>${ticket.tramTime}</td>
+                    <td>${ticket.tramDate}</td>
                     <td>${ticket.origin}</td>
                     <td>${ticket.destination}</td>
                     <td>${ticket.id}</td>
@@ -127,6 +130,16 @@ function populateTram(){
         tramOrigin.innerHTML+=`<option value="${locations.location}">${locations.location}</option>`
         tramDestination.innerHTML+=`<option value="${locations.location}">${locations.location}</option>`
     }) 
+}
+
+function getDate(){
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth()+1;
+    let yyyy = today.getFullYear();
+
+    let date = dd+"/"+mm+"/"+yyyy;
+    return date;
 }
 
 function blueLine(){    
@@ -170,11 +183,3 @@ function yellowLine(){
 
 ///EJECUCION///
 populateTram();
-
-
-
-
-
-
-
-
