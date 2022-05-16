@@ -96,8 +96,9 @@ yellowTram.addEventListener('submit', (event) => {
 tramTicket.addEventListener('submit', (event) => {
     event.preventDefault();
     let id = Math.ceil(Math.random()*10000);
+    let tramTime = new Date().toLocaleTimeString();
     let formData = new FormData(event.target)
-    const ordenTicket = new ticket (formData.get('pasajero'),formData.get('tramTime'),formData.get('origin'),
+    const ordenTicket = new ticket (formData.get('pasajero'),tramTime,formData.get('origin'),
     formData.get('ending'),id) 
     tickets.push(ordenTicket);
     localStorage.setItem('ticket',JSON.stringify(tickets));   
